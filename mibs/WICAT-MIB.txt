@@ -1,0 +1,32 @@
+WICAT-MIB DEFINITIONS ::= BEGIN
+    IMPORTS
+    Counter32, Integer32, OBJECT-TYPE, MODULE-IDENTITY,
+    OBJECT-IDENTITY, enterprises
+        FROM SNMPv2-SMI
+    OBJECT-GROUP
+        FROM SNMPv2-CONF;
+
+    wicat OBJECT IDENTIFIER ::= { enterprises 58734 }
+
+    wicatMIB MODULE-IDENTITY
+        LAST-UPDATED        "202302022044Z"
+        ORGANIZATION        "Wireless Cat"
+        CONTACT-INFO        "support@wi-cat.ru"
+        DESCRIPTION         "Wireless Cat Root"
+
+        REVISION            "202302022044Z"
+        DESCRIPTION         "Added Management module"
+
+        REVISION            "202210041140Z"
+        DESCRIPTION         "Added Wireless module"
+
+        REVISION            "202209101847Z"
+        DESCRIPTION         "initial version"
+        ::= { wicat 1 }
+
+    wicatSwitch OBJECT IDENTIFIER ::= { wicat 2 }
+    wicatWireless OBJECT IDENTIFIER ::= { wicat 3 }
+    wicatManagement OBJECT IDENTIFIER ::= { wicat 4 }
+
+END
+

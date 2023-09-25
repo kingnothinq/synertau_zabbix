@@ -1,0 +1,876 @@
+WICAT-WIRELESS-MIB DEFINITIONS ::= BEGIN
+    IMPORTS
+    OBJECT-TYPE, MODULE-IDENTITY, Unsigned32,
+    TimeTicks
+        FROM SNMPv2-SMI
+    OBJECT-GROUP
+        FROM SNMPv2-CONF
+    wicatWireless
+        FROM WICAT-MIB
+    MacAddress, DisplayString, TEXTUAL-CONVENTION
+        FROM SNMPv2-TC;
+
+    wicatWirelessMIB MODULE-IDENTITY
+        LAST-UPDATED        "202302011708Z"
+        ORGANIZATION        "Wireless Cat"
+        CONTACT-INFO        "support@wi-cat.ru"
+        DESCRIPTION         "Wireless Cat Wireless"
+
+        REVISION            "202302011708Z"
+        DESCRIPTION         "Table row counters"
+        REVISION            "202211061909Z"
+        DESCRIPTION         "Noise Floor and SNR"
+        REVISION            "202211051920Z"
+        DESCRIPTION         "AP Client Mode settings"
+        REVISION            "202210241344Z"
+        DESCRIPTION         "AP Scan info table"
+        REVISION            "202210222136Z"
+        DESCRIPTION         "Wireless Stations table"
+        REVISION            "202210161928Z"
+        DESCRIPTION         "Wireless Client tables"
+        REVISION            "202210041140Z"
+        DESCRIPTION         "initial version"
+        ::= { wicatWireless 1 }
+
+    OnOff ::= TEXTUAL-CONVENTION
+        STATUS              current
+        DESCRIPTION         "0/1 boolean value"
+        SYNTAX              INTEGER {
+                                off( 0 ),
+                                on( 1 )
+                            }
+
+    ChannelBandwidth ::= TEXTUAL-CONVENTION
+        STATUS              current
+        DESCRIPTION         "Wireless channel bandwidth"
+        SYNTAX              INTEGER {
+                                bw20( 0 ),
+                                bw40( 1 ),
+                                bw80( 2 ),
+                                bw160( 3 ),
+                                bw10( 4 ),
+                                bw5( 5 ),
+                                bw8080( 6 )
+                            }
+
+    WirelessBand ::= TEXTUAL-CONVENTION
+        STATUS              current
+        DESCRIPTION         "Band"
+        SYNTAX              INTEGER {
+                                band24( 1 ),
+                                band5( 2 ),
+                                band6( 3 )
+                            }
+
+
+
+    wicatWirelessMIBConformance OBJECT IDENTIFIER ::= { wicatWirelessMIB 1 }
+
+    wicatWirelessMIBGroups OBJECT IDENTIFIER ::= { wicatWirelessMIBConformance 1 }
+
+    wicatWirelessMibAllObjects OBJECT-GROUP
+        OBJECTS {           
+                        apcEnable,
+                        apcBand,
+                        apcSSID,
+                        apcBSSID,
+                        apcSecurityMode,
+                        apcChannel,
+                        apcDisableAPInterface,
+                        apcBridgeMode,
+                        apcPMF,
+                        wic24AID,
+                        wic24MacAddress,
+                        wic24ConnectedTime,
+                        wic24PSM,
+                        wic24MPS,
+                        wic24MCS,
+                        wic24Bandwidth,
+                        wic24SGI,
+                        wic24STBC,
+                        wic24LDPC,
+                        wic24PhyMode,
+                        wic24TXRate,
+                        wic24RSSI0,
+                        wic24RSSI1,
+                        wic24RSSI2,
+                        wic24RXCount,
+                        wic24TXCount,
+                        wic24SNR,
+                        wic5AID,
+                        wic5MacAddress,
+                        wic5ConnectedTime,
+                        wic5PSM,
+                        wic5MPS,
+                        wic5MCS,
+                        wic5Bandwidth,
+                        wic5SGI,
+                        wic5STBC,
+                        wic5LDPC,
+                        wic5PhyMode,
+                        wic5TXRate,
+                        wic5RSSI0,
+                        wic5RSSI1,
+                        wic5RSSI2,
+                        wic5RXCount,
+                        wic5TXCount,
+                        wic5SNR,
+                        wisID,
+                        wisInterface,
+                        wisBand,
+                        wisSSID,
+                        wisHidden,
+                        wisBSSID,
+                        wisSecurityMode,
+                        wisChannel,
+                        wisMode,
+                        wisTxPower,
+                        wisBandwidth,
+                        wisPMF,
+                        wisNoiseFloor,
+                        apsID,
+                        apsBand,
+                        apsChannel,
+                        apsSSID,
+                        apsBSSID,
+                        apsSecurityMode,
+                        apsSignalLevel,
+                        apsMode,
+                        wirelessClients24Number,
+                        wirelessClients5Number,
+                        wirelessStationsNumber,
+                        wirelessAPScanNumber
+                }
+        STATUS              current
+        DESCRIPTION         "This automatically created object group contains
+                            all those objects that do not belong to any other
+                            OBJECT-GROUP"
+        ::= { wicatWirelessMIBGroups 2 }
+
+    wirelessClients24Table OBJECT-TYPE
+        SYNTAX              SEQUENCE OF WirelessClients24Entry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Table of 2.4GHz wlan client stations"
+        ::= { wicatWireless 2 }
+
+    wirelessClients24Entry OBJECT-TYPE
+        SYNTAX              WirelessClients24Entry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Wireless 2.4GHz client data"
+        INDEX               {
+                                wic24AID
+                            }
+        ::= { wirelessClients24Table 1 }
+
+    WirelessClients24Entry ::= SEQUENCE {
+        wic24AID
+            Unsigned32,
+        wic24MacAddress
+            MacAddress,
+        wic24ConnectedTime
+            TimeTicks,
+        wic24PSM
+            OnOff,
+        wic24MPS
+            OnOff,
+        wic24MCS
+            INTEGER,
+        wic24Bandwidth
+            ChannelBandwidth,
+        wic24SGI
+            OnOff,
+        wic24STBC
+            OnOff,
+        wic24LDPC
+            OnOff,
+        wic24PhyMode
+            DisplayString,
+        wic24TXRate
+            INTEGER,
+        wic24RSSI0
+            INTEGER,
+        wic24RSSI1
+            INTEGER,
+        wic24RSSI2
+            INTEGER,
+        wic24RXCount
+            INTEGER,
+        wic24TXCount
+            INTEGER,
+        wic24SNR
+            INTEGER
+    }
+
+    wic24AID OBJECT-TYPE
+        SYNTAX              Unsigned32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Client index"
+        ::= { wirelessClients24Entry 1 }
+
+    wic24MacAddress OBJECT-TYPE
+        SYNTAX              MacAddress
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Client MAC"
+        ::= { wirelessClients24Entry 2 }
+
+    wic24ConnectedTime OBJECT-TYPE
+        SYNTAX              TimeTicks
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Time since client connected"
+        ::= { wirelessClients24Entry 3 }
+
+    wic24PSM OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Is Power Saving Mode enabled."
+        ::= { wirelessClients24Entry 4 }
+
+    wic24MPS OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "MIMO Power Save"
+        ::= { wirelessClients24Entry 5 }
+
+    wic24MCS OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Modulation and Coding Scheme"
+        ::= { wirelessClients24Entry 6 }
+
+    wic24Bandwidth OBJECT-TYPE
+        SYNTAX              ChannelBandwidth
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Channel Bandwidth"
+        ::= { wirelessClients24Entry 7 }
+
+    wic24SGI OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Short Guard Interval"
+        ::= { wirelessClients24Entry 8 }
+
+    wic24STBC OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Space time block coding"
+        ::= { wirelessClients24Entry 9 }
+
+    wic24LDPC OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Low Density Parity Check"
+        ::= { wirelessClients24Entry 10 }
+
+    wic24PhyMode OBJECT-TYPE
+        SYNTAX              DisplayString
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Transmitter Mode"
+        ::= { wirelessClients24Entry 11 }
+
+    wic24TXRate OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "MBit/s"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Transmit rate"
+        ::= { wirelessClients24Entry 12 }
+
+    wic24RSSI0 OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Received Signal Strength Indicator."
+        ::= { wirelessClients24Entry 13 }
+
+    wic24RSSI1 OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Received Signal Strength Indicator."
+        ::= { wirelessClients24Entry 14 }
+
+    wic24RSSI2 OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Received Signal Strength Indicator."
+        ::= { wirelessClients24Entry 15 }
+
+    wic24RXCount OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "bytes"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Bytes received"
+        ::= { wirelessClients24Entry 16 }
+
+    wic24TXCount OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "bytes"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Bytes transmitted"
+        ::= { wirelessClients24Entry 17 }
+
+    wic24SNR OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Signal-to-Noise Ratio"
+        ::= { wirelessClients24Entry 18 }
+
+    wirelessClients5Table OBJECT-TYPE
+        SYNTAX              SEQUENCE OF WirelessClients5Entry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Table of 5GHz wlan client stations"
+        ::= { wicatWireless 3 }
+
+    wirelessClients5Entry OBJECT-TYPE
+        SYNTAX              WirelessClients5Entry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Wireless 5GHz client data"
+        INDEX               {
+                                wic5AID
+                            }
+        ::= { wirelessClients5Table 1 }
+
+    WirelessClients5Entry ::= SEQUENCE {
+        wic5AID
+            Unsigned32,
+        wic5MacAddress
+            MacAddress,
+        wic5ConnectedTime
+            TimeTicks,
+        wic5PSM
+            OnOff,
+        wic5MPS
+            OnOff,
+        wic5MCS
+            INTEGER,
+        wic5Bandwidth
+            ChannelBandwidth,
+        wic5SGI
+            OnOff,
+        wic5STBC
+            OnOff,
+        wic5LDPC
+            OnOff,
+        wic5PhyMode
+            DisplayString,
+        wic5TXRate
+            INTEGER,
+        wic5RSSI0
+            INTEGER,
+        wic5RSSI1
+            INTEGER,
+        wic5RSSI2
+            INTEGER,
+        wic5RXCount
+            INTEGER,
+        wic5TXCount
+            INTEGER,
+        wic5SNR
+            INTEGER
+    }
+
+    wic5AID OBJECT-TYPE
+        SYNTAX              Unsigned32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Client index"
+        ::= { wirelessClients5Entry 1 }
+
+    wic5MacAddress OBJECT-TYPE
+        SYNTAX              MacAddress
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Client MAC"
+        ::= { wirelessClients5Entry 2 }
+
+    wic5ConnectedTime OBJECT-TYPE
+        SYNTAX              TimeTicks
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Time since client connected"
+        ::= { wirelessClients5Entry 3 }
+
+    wic5PSM OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Is Power Saving Mode enabled."
+        ::= { wirelessClients5Entry 4 }
+
+    wic5MPS OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "MIMO Power Save"
+        ::= { wirelessClients5Entry 5 }
+
+    wic5MCS OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Modulation and Coding Scheme"
+        ::= { wirelessClients5Entry 6 }
+
+    wic5Bandwidth OBJECT-TYPE
+        SYNTAX              ChannelBandwidth
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Channel Bandwidth"
+        ::= { wirelessClients5Entry 7 }
+
+    wic5SGI OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Short Guard Interval"
+        ::= { wirelessClients5Entry 8 }
+
+    wic5STBC OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Space time block coding"
+        ::= { wirelessClients5Entry 9 }
+
+    wic5LDPC OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Low Density Parity Check"
+        ::= { wirelessClients5Entry 10 }
+
+    wic5PhyMode OBJECT-TYPE
+        SYNTAX              DisplayString
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Transmitter Mode"
+        ::= { wirelessClients5Entry 11 }
+
+    wic5TXRate OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "MBits/s"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Transmit rate"
+        ::= { wirelessClients5Entry 12 }
+
+    wic5RSSI0 OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Received Signal Strength Indicator."
+        ::= { wirelessClients5Entry 13 }
+
+    wic5RSSI1 OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Received Signal Strength Indicator."
+        ::= { wirelessClients5Entry 14 }
+
+    wic5RSSI2 OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Received Signal Strength Indicator."
+        ::= { wirelessClients5Entry 15 }
+
+    wic5RXCount OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "bytes"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Bytes received"
+        ::= { wirelessClients5Entry 16 }
+
+    wic5TXCount OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "bytes"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Bytes transmitted"
+        ::= { wirelessClients5Entry 17 }
+
+    wic5SNR OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dB"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Signal-to-Noise Ratio"
+        ::= { wirelessClients5Entry 18 }
+
+    wirelessStationsTable OBJECT-TYPE
+        SYNTAX              SEQUENCE OF WirelessStationsEntry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Wireless Stations Table"
+        ::= { wicatWireless 4 }
+
+    wirelessStationsEntry OBJECT-TYPE
+        SYNTAX              WirelessStationsEntry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Wireless Stations Entry"
+        INDEX               {
+                                wisID
+                            }
+        ::= { wirelessStationsTable 1 }
+
+    WirelessStationsEntry ::= SEQUENCE {
+        wisID
+            Unsigned32,
+        wisInterface
+            OCTET STRING,
+        wisBand
+            WirelessBand,
+        wisSSID
+            OCTET STRING,
+        wisHidden
+            OnOff,
+        wisBSSID
+            MacAddress,
+        wisSecurityMode
+            OCTET STRING,
+        wisChannel
+            INTEGER,
+        wisMode
+            INTEGER,
+        wisTxPower
+            Unsigned32,
+        wisBandwidth
+            ChannelBandwidth,
+        wisPMF
+            INTEGER,
+        wisNoiseFloor
+            INTEGER
+    }
+
+    wisID OBJECT-TYPE
+        SYNTAX              Unsigned32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Station index"
+        ::= { wirelessStationsEntry 1 }
+
+    wisInterface OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Network interface name associated with the station."
+        ::= { wirelessStationsEntry 2 }
+
+    wisBand OBJECT-TYPE
+        SYNTAX              WirelessBand
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Wireless Band"
+        ::= { wirelessStationsEntry 3 }
+
+    wisSSID OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "SSID string"
+        ::= { wirelessStationsEntry 4 }
+
+    wisHidden OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Is SSID hidden"
+        ::= { wirelessStationsEntry 5 }
+
+    wisBSSID OBJECT-TYPE
+        SYNTAX              MacAddress
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Station MAC address"
+        ::= { wirelessStationsEntry 6 }
+
+    wisSecurityMode OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Security mode"
+        ::= { wirelessStationsEntry 7 }
+
+    wisChannel OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Channel"
+        ::= { wirelessStationsEntry 8 }
+
+    wisMode OBJECT-TYPE
+        SYNTAX              INTEGER {
+                                bg( 0 ),
+                                b( 1 ),
+                                a( 2 ),
+                                g( 4 ),
+                                n( 6 ),
+                                gn( 7 ),
+                                aan( 8 ),
+                                bgn( 9 ),
+                                an( 11 ),
+                                aanac( 14 ),
+                                anac( 15 ),
+                                gnax( 16 ),
+                                aanacax( 17 )
+                            }
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Wireless Mode"
+        ::= { wirelessStationsEntry 9 }
+
+    wisTxPower OBJECT-TYPE
+        SYNTAX              Unsigned32
+        UNITS               "%"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Transmitter power percentage"
+        ::= { wirelessStationsEntry 10 }
+
+    wisBandwidth OBJECT-TYPE
+        SYNTAX              ChannelBandwidth
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Channel bandwidth"
+        ::= { wirelessStationsEntry 11 }
+
+    wisPMF OBJECT-TYPE
+        SYNTAX              INTEGER {
+                                disable( 0 ),
+                                capable( 1 ),
+                                required( 2 )
+                            }
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Management Frame Protection Mode"
+        ::= { wirelessStationsEntry 12 }
+
+    wisNoiseFloor OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "dBm"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Noise floor"
+        ::= { wirelessStationsEntry 13 }
+
+    wirelessAPScanTable OBJECT-TYPE
+        SYNTAX              SEQUENCE OF WirelessAPScanEntry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "AP Scan results"
+        ::= { wicatWireless 5 }
+
+    wirelessAPScanEntry OBJECT-TYPE
+        SYNTAX              WirelessAPScanEntry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "AP Scan Entry"
+        INDEX               {
+                                apsID
+                            }
+        ::= { wirelessAPScanTable 1 }
+
+    WirelessAPScanEntry ::= SEQUENCE {
+        apsID
+            Unsigned32,
+        apsBand
+            WirelessBand,
+        apsChannel
+            INTEGER,
+        apsSSID
+            OCTET STRING,
+        apsBSSID
+            MacAddress,
+        apsSecurityMode
+            OCTET STRING,
+        apsSignalLevel
+            INTEGER,
+        apsMode
+            OCTET STRING
+    }
+
+    apsID OBJECT-TYPE
+        SYNTAX              Unsigned32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Scan result identifier"
+        ::= { wirelessAPScanEntry 1 }
+
+    apsBand OBJECT-TYPE
+        SYNTAX              WirelessBand
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Result band"
+        ::= { wirelessAPScanEntry 2 }
+
+    apsChannel OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Wireless Channel"
+        ::= { wirelessAPScanEntry 3 }
+
+    apsSSID OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "SSID"
+        ::= { wirelessAPScanEntry 4 }
+
+    apsBSSID OBJECT-TYPE
+        SYNTAX              MacAddress
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Scan entry mac address"
+        ::= { wirelessAPScanEntry 5 }
+
+    apsSecurityMode OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Security Mode"
+        ::= { wirelessAPScanEntry 6 }
+
+    apsSignalLevel OBJECT-TYPE
+        SYNTAX              INTEGER
+        UNITS               "%"
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Signal strength percentage"
+        ::= { wirelessAPScanEntry 7 }
+
+    apsMode OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Wireless Mode"
+        ::= { wirelessAPScanEntry 8 }
+
+    wirelessAPClient OBJECT IDENTIFIER ::= { wicatWireless 6 }
+
+    apcEnable OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Is AP Client mode enabled"
+        ::= { wirelessAPClient 1 }
+
+    apcBand OBJECT-TYPE
+        SYNTAX              WirelessBand
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "AP Client band"
+        ::= { wirelessAPClient 2 }
+
+    apcSSID OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "SSID"
+        ::= { wirelessAPClient 3 }
+
+    apcBSSID OBJECT-TYPE
+        SYNTAX              MacAddress
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "MAC address to connect to."
+        ::= { wirelessAPClient 4 }
+
+    apcSecurityMode OBJECT-TYPE
+        SYNTAX              OCTET STRING
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Security Modes: OPEN, WPAPSK, WPA2PSK, WPA3PSK."
+        ::= { wirelessAPClient 5 }
+
+    apcChannel OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Wireless channel (0 = auto)"
+        ::= { wirelessAPClient 6 }
+
+    apcDisableAPInterface OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Disable AP Interface"
+        ::= { wirelessAPClient 7 }
+
+    apcBridgeMode OBJECT-TYPE
+        SYNTAX              OnOff
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Enable Bridge (Repeater) Mode"
+        ::= { wirelessAPClient 8 }
+
+    apcPMF OBJECT-TYPE
+        SYNTAX              INTEGER {
+                                disabled( 0 ),
+                                capable( 1 )
+                            }
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Protection Management Frame (802.11w)"
+        ::= { wirelessAPClient 9 }
+
+    wirelessClients24Number OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Number of rows in wirelessClients24Table"
+        ::= { wicatWireless 7 }
+
+    wirelessClients5Number OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Number of rows in wirelessClients5Table"
+        ::= { wicatWireless 8 }
+
+    wirelessStationsNumber OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Number of rows in wirelessStationsTable"
+        ::= { wicatWireless 9 }
+
+    wirelessAPScanNumber OBJECT-TYPE
+        SYNTAX              INTEGER
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Number of rows in wirelessAPScanTable"
+        ::= { wicatWireless 10 }
+
+
+END
+

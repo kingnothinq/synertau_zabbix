@@ -1,0 +1,69 @@
+WICAT-MANAGEMENT-MIB DEFINITIONS ::= BEGIN
+    IMPORTS
+    OBJECT-TYPE, MODULE-IDENTITY, OBJECT-IDENTITY
+        FROM SNMPv2-SMI
+    OBJECT-GROUP
+        FROM SNMPv2-CONF
+    wicatManagement
+        FROM WICAT-MIB
+    DisplayString
+        FROM SNMPv2-TC;
+
+    wicatManagementMIB MODULE-IDENTITY
+        LAST-UPDATED        "202302022055Z"
+        ORGANIZATION        "Wireless Cat"
+        CONTACT-INFO        "support@wi-cat.ru"
+        DESCRIPTION         "Wireless Cat Management"
+
+        REVISION            "202302022055Z"
+        DESCRIPTION         "initial version"
+        ::= { wicatManagement 1 }
+
+
+    wicatManagementMIBConformance OBJECT IDENTIFIER ::= { wicatManagementMIB 1 }
+
+    wicatManagementMIBGroups OBJECT IDENTIFIER ::= { wicatManagementMIBConformance 1 }
+
+    wicatManagementAllObjects OBJECT-GROUP
+        OBJECTS {           
+                        fwVersion
+                }
+        STATUS              current
+        DESCRIPTION         "This automatically created object group contains
+                            all those objects that do not belong to any other
+                            OBJECT-GROUP"
+        ::= { wicatManagementMIBGroups 1 }
+
+    wicatManagementMibAllObjects OBJECT-GROUP
+        OBJECTS {           
+                        fwNewVersionAvailable
+                }
+        STATUS              current
+        DESCRIPTION         "This automatically created object group contains
+                            all those objects that do not belong to any other
+                            OBJECT-GROUP"
+        ::= { wicatManagementMIBGroups 2 }
+
+    firmware OBJECT-IDENTITY
+        STATUS              current
+        DESCRIPTION         "Any options related to device firmware"
+        ::= { wicatManagement 2 }
+
+    fwVersion OBJECT-TYPE
+        SYNTAX              DisplayString
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Current firmware version string"
+        ::= { firmware 1 }
+
+    fwNewVersionAvailable OBJECT-TYPE
+        SYNTAX              DisplayString
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "New version string available through updater.
+                            Empty string if there is no."
+        ::= { firmware 2 }
+
+
+END
+

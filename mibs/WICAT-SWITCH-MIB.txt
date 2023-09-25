@@ -1,0 +1,531 @@
+WICAT-SWITCH-MIB DEFINITIONS ::= BEGIN
+    IMPORTS
+
+    Counter32, Integer32, OBJECT-TYPE, MODULE-IDENTITY,
+    OBJECT-IDENTITY, enterprises
+        FROM SNMPv2-SMI
+
+    OBJECT-GROUP
+        FROM SNMPv2-CONF
+
+    wicatSwitch
+        FROM WICAT-MIB;
+
+    wicatSwitchMIB MODULE-IDENTITY
+        LAST-UPDATED        "202209101847Z"
+        ORGANIZATION        "Wireless Cat"
+        CONTACT-INFO        "support@wi-cat.ru"
+        DESCRIPTION         "Wireless Cat Switch"
+
+        REVISION            "202209101847Z"
+        DESCRIPTION         "initial version"
+        ::= { wicatSwitch 1 }
+
+    wicatSwitchMIBConformance OBJECT IDENTIFIER ::= { wicatSwitchMIB 1 }
+
+    wicatSwitchMIBGroups OBJECT IDENTIFIER ::= { wicatSwitchMIBConformance 1 }
+
+    wicatSwitchAllObjects OBJECT-GROUP
+        OBJECTS {           
+                        spNumber,
+                        spcIndex,
+                        spcDropPacketTX,
+                        spcCRCPacketTX,
+                        spcUnicastPacketTX,
+                        spcMulticastPacketTX,
+                        spcBroadcastPacketTX,
+                        spcCollisionEventTX,
+                        spcSingleCollisionEventTX,
+                        spcMultipleCollisionEventTX,
+                        spcDeferredEventTX,
+                        spcLateCollisionEventTX,
+                        spcExcessiveCollisionEventTX,
+                        spcPausePacketTX,
+                        spcPacketLen64SlotTX,
+                        spcPacketLen65SlotTX,
+                        spcPacketLen128SlotTX,
+                        spcPacketLen256SlotTX,
+                        spcPacketLen512SlotTX,
+                        spcPacketLen1024SlotTX,
+                        spcOctetCounterLowTX,
+                        spcOctetCounterHighTX,
+                        spcMIBCounterHalfFullStatusTX,
+                        spcDropPacketRX,
+                        spcFilterPacketRX,
+                        spcUnicastPacketRX,
+                        spcMulticastPacketRX,
+                        spcBroadcastPacketRX,
+                        spcAlignmentErrorRX,
+                        spcCRCPacketRX,
+                        spcUndersizePacketRX,
+                        spcFragmentErrorPacketRX,
+                        spcOversizePacketRX,
+                        spcJabberErrorPacketRX,
+                        spcPausePacketRX,
+                        spcPacketLen64SlotRX,
+                        spcPacketLen65SlotRX,
+                        spcPacketLen128SlotRX,
+                        spcPacketLen256SlotRX,
+                        spcPacketLen512SlotRX,
+                        spcPacketLen1024SlotRX,
+                        spcOctetCounterLowRX,
+                        spcOctetCounterHighRX,
+                        spcCTRLDropPacketRX,
+                        spcIngressDropPacketRX,
+                        spcARLDropPacketRX,
+                        spcMIBCounterHalfFullStatusRX
+                }
+        STATUS              current
+        DESCRIPTION         "This automatically created object group contains
+                            all those objects that do not belong to any other
+                            OBJECT-GROUP"
+        ::= { wicatSwitchMIBGroups 1 }
+
+    switchPort OBJECT-IDENTITY
+        STATUS              current
+        DESCRIPTION         "Switch port related info."
+        ::= { wicatSwitch 2 }
+
+    spNumber OBJECT-TYPE
+        SYNTAX              Integer32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Number of available switch ports."
+        ::= { switchPort 1 }
+
+    spCounters OBJECT-TYPE
+        SYNTAX              SEQUENCE OF SpCountersEntry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Switch port counters table."
+        ::= { switchPort 2 }
+
+    spCountersEntry OBJECT-TYPE
+        SYNTAX              SpCountersEntry
+        MAX-ACCESS          not-accessible
+        STATUS              current
+        DESCRIPTION         "Switch port counters entry."
+        INDEX               {
+                                spcIndex
+                            }
+        ::= { spCounters 1 }
+
+    SpCountersEntry ::= SEQUENCE {
+        spcIndex
+            Integer32,
+        spcDropPacketTX
+            Counter32,
+        spcCRCPacketTX
+            Counter32,
+        spcUnicastPacketTX
+            Counter32,
+        spcMulticastPacketTX
+            Counter32,
+        spcBroadcastPacketTX
+            Counter32,
+        spcCollisionEventTX
+            Counter32,
+        spcSingleCollisionEventTX
+            Counter32,
+        spcMultipleCollisionEventTX
+            Counter32,
+        spcDeferredEventTX
+            Counter32,
+        spcLateCollisionEventTX
+            Counter32,
+        spcExcessiveCollisionEventTX
+            Counter32,
+        spcPausePacketTX
+            Counter32,
+        spcPacketLen64SlotTX
+            Counter32,
+        spcPacketLen65SlotTX
+            Counter32,
+        spcPacketLen128SlotTX
+            Counter32,
+        spcPacketLen256SlotTX
+            Counter32,
+        spcPacketLen512SlotTX
+            Counter32,
+        spcPacketLen1024SlotTX
+            Counter32,
+        spcOctetCounterLowTX
+            Counter32,
+        spcOctetCounterHighTX
+            Counter32,
+        spcMIBCounterHalfFullStatusTX
+            Counter32,
+        spcDropPacketRX
+            Counter32,
+        spcFilterPacketRX
+            Counter32,
+        spcUnicastPacketRX
+            Counter32,
+        spcMulticastPacketRX
+            Counter32,
+        spcBroadcastPacketRX
+            Counter32,
+        spcAlignmentErrorRX
+            Counter32,
+        spcCRCPacketRX
+            Counter32,
+        spcUndersizePacketRX
+            Counter32,
+        spcFragmentErrorPacketRX
+            Counter32,
+        spcOversizePacketRX
+            Counter32,
+        spcJabberErrorPacketRX
+            Counter32,
+        spcPausePacketRX
+            Counter32,
+        spcPacketLen64SlotRX
+            Counter32,
+        spcPacketLen65SlotRX
+            Counter32,
+        spcPacketLen128SlotRX
+            Counter32,
+        spcPacketLen256SlotRX
+            Counter32,
+        spcPacketLen512SlotRX
+            Counter32,
+        spcPacketLen1024SlotRX
+            Counter32,
+        spcOctetCounterLowRX
+            Counter32,
+        spcOctetCounterHighRX
+            Counter32,
+        spcCTRLDropPacketRX
+            Counter32,
+        spcIngressDropPacketRX
+            Counter32,
+        spcARLDropPacketRX
+            Counter32,
+        spcMIBCounterHalfFullStatusRX
+            Counter32
+    }
+
+    spcIndex OBJECT-TYPE
+        SYNTAX              Integer32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "Port index"
+        ::= { spCountersEntry 1 }
+
+    spcDropPacketTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Drop Packet Counter"
+        ::= { spCountersEntry 2 }
+
+    spcCRCPacketTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX CRC Packet Counter"
+        ::= { spCountersEntry 3 }
+
+    spcUnicastPacketTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Unicast Packet Counter"
+        ::= { spCountersEntry 4 }
+
+    spcMulticastPacketTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Multicast Packet Counter"
+        ::= { spCountersEntry 5 }
+
+    spcBroadcastPacketTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Broadcast Packet Counter"
+        ::= { spCountersEntry 6 }
+
+    spcCollisionEventTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Collision Event Counter"
+        ::= { spCountersEntry 7 }
+
+    spcSingleCollisionEventTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Single Collision Event Counter"
+        ::= { spCountersEntry 8 }
+
+    spcMultipleCollisionEventTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Multiple Collision Event Counter"
+        ::= { spCountersEntry 9 }
+
+    spcDeferredEventTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Deferred Event Counter"
+        ::= { spCountersEntry 10 }
+
+    spcLateCollisionEventTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Late Collision Event Counter"
+        ::= { spCountersEntry 11 }
+
+    spcExcessiveCollisionEventTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Excessive Collision Event Counter"
+        ::= { spCountersEntry 12 }
+
+    spcPausePacketTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Pause Packet Counter"
+        ::= { spCountersEntry 13 }
+
+    spcPacketLen64SlotTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX packet Length in 64-byte slot Packet Counter"
+        ::= { spCountersEntry 14 }
+
+    spcPacketLen65SlotTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX packet Length in 65-byte slot Packet Counter"
+        ::= { spCountersEntry 15 }
+
+    spcPacketLen128SlotTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX packet Length in 128-byte slot Packet Counter"
+        ::= { spCountersEntry 16 }
+
+    spcPacketLen256SlotTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX packet Length in 256-byte slot Packet Counter"
+        ::= { spCountersEntry 17 }
+
+    spcPacketLen512SlotTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX packet Length in 512-byte slot Packet Counter"
+        ::= { spCountersEntry 18 }
+
+    spcPacketLen1024SlotTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX packet Length in 1024-byte slot Packet Counter"
+        ::= { spCountersEntry 19 }
+
+    spcOctetCounterLowTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Octet Counter Low double word"
+        ::= { spCountersEntry 20 }
+
+    spcOctetCounterHighTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Octet Counter High double word"
+        ::= { spCountersEntry 21 }
+
+    spcMIBCounterHalfFullStatusTX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "TX Port MIB Counter Half Full Status"
+        ::= { spCountersEntry 22 }
+
+    spcDropPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Drop Packet Counter"
+        ::= { spCountersEntry 23 }
+
+    spcFilterPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Filtering Packet Counter"
+        ::= { spCountersEntry 24 }
+
+    spcUnicastPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Unicast Packet Counter"
+        ::= { spCountersEntry 25 }
+
+    spcMulticastPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Multicast Packet Counter"
+        ::= { spCountersEntry 26 }
+
+    spcBroadcastPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Broadcast Packet Counter"
+        ::= { spCountersEntry 27 }
+
+    spcAlignmentErrorRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Alignment Error Packet Counter"
+        ::= { spCountersEntry 28 }
+
+    spcCRCPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX CRC(FCS) Error Packet Counter"
+        ::= { spCountersEntry 29 }
+
+    spcUndersizePacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Undersize Packet Counter"
+        ::= { spCountersEntry 30 }
+
+    spcFragmentErrorPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Fragment Error Packet Counter"
+        ::= { spCountersEntry 31 }
+
+    spcOversizePacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Oversize Packet Counter"
+        ::= { spCountersEntry 32 }
+
+    spcJabberErrorPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Jabber Error Packet Counter"
+        ::= { spCountersEntry 33 }
+
+    spcPausePacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Pause Packet Counter"
+        ::= { spCountersEntry 34 }
+
+    spcPacketLen64SlotRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX packet Length in 64-byte slot Packet Counter"
+        ::= { spCountersEntry 35 }
+
+    spcPacketLen65SlotRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX packet Length in 65-byte slot Packet Counter"
+        ::= { spCountersEntry 36 }
+
+    spcPacketLen128SlotRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX packet Length in 128-byte slot Packet Counter"
+        ::= { spCountersEntry 37 }
+
+    spcPacketLen256SlotRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX packet Length in 256-byte slot Packet Counter"
+        ::= { spCountersEntry 38 }
+
+    spcPacketLen512SlotRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX packet Length in 512-byte slot Packet Counter"
+        ::= { spCountersEntry 39 }
+
+    spcPacketLen1024SlotRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX packet Length in 1024-byte slot Packet Counter"
+        ::= { spCountersEntry 40 }
+
+    spcOctetCounterLowRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Octet Counter Low double word"
+        ::= { spCountersEntry 41 }
+
+    spcOctetCounterHighRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Octet Counter High double word"
+        ::= { spCountersEntry 42 }
+
+    spcCTRLDropPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX CTRL Drop Packet Counter"
+        ::= { spCountersEntry 43 }
+
+    spcIngressDropPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Ingress Drop Packet Counter"
+        ::= { spCountersEntry 44 }
+
+    spcARLDropPacketRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX ARL Drop Packet Counter"
+        ::= { spCountersEntry 45 }
+
+    spcMIBCounterHalfFullStatusRX OBJECT-TYPE
+        SYNTAX              Counter32
+        MAX-ACCESS          read-only
+        STATUS              current
+        DESCRIPTION         "RX Port MIB Counter Half Full Status"
+        ::= { spCountersEntry 46 }
+
+END
+
