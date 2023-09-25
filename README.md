@@ -5,7 +5,7 @@
 
 Clone the repository to your computer:
 ```bash
-git clone https://github.com/mnv/python-course-country-directory.git
+git clone https://github.com/kingnothinq/synertau_zabbix.git
 ```
 
 ### Requirements:
@@ -18,7 +18,30 @@ Install the appropriate software:
 
 ## Usage
 
+1. To configure the application copy `.env.sample` into `.env` file:
+    ```shell
+    cp .env.sample .env
+    ```
+   
+    This file contains environment variables that will share their values across the application.
+    The sample file (`.env.sample`) contains a set of variables with default values. 
+    So it can be configured depending on the environment.
 
+    Set received access tokens as environment variable values (in `.env` file):
+    - `ZABBIX_API_KEY` – Zabbix API Token (Users -> API Tokens -> Create API token)
+
+2. Build the container using Docker Compose:
+    ```shell
+    docker compose build
+    ```
+   This command should be run from the root directory where `Dockerfile` is located.
+   You also need to build the docker container again in case if you have updated `requirements.txt`.
+
+3. Now it is possible to run the project inside the Docker container:
+    ```shell
+    docker compose up
+    ```
+   When containers are up server starts at [http://0.0.0.0:80](http://0.0.0.0:80). You can open it in your browser.
 
 ### Automation commands
 

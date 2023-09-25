@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 ENV ENV=${ENV} \
   PYTHONFAULTHANDLER=1 \

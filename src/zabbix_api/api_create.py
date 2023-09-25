@@ -173,7 +173,7 @@ class ZabbixCreateCalls(ZabbixBase):
                     wive_group, group_5, group_24, sum_clients
                 ),
                 "users": [{"userid": "1", "permission": "2"}],
-                "userGroups": [{"usrgrpid": "7", "permission": "2"}],
+                "userGroups": [{"usrgrpid": "7", "permission": "2"}]
             }
         }
 
@@ -210,8 +210,8 @@ class ZabbixCreateCalls(ZabbixBase):
                         "fields": [
                             {"type": "0", "name": "rf_rate", "value": "10"},
                             {"type": "2", "name": "groupids", "value": wive_group},
-                            {"type": "0", "name": "interface_type", "value": "2"},
-                        ],
+                            {"type": "0", "name": "interface_type", "value": "2"}
+                        ]
                     },
                     {
                         "type": "problemhosts",
@@ -224,8 +224,8 @@ class ZabbixCreateCalls(ZabbixBase):
                         "fields": [
                             {"type": "2", "name": "groupids", "value": wive_group},
                             {"type": "0", "name": "hide_empty_groups", "value": "1"},
-                            {"type": "0", "name": "ext_ack", "value": "1"},
-                        ],
+                            {"type": "0", "name": "ext_ack", "value": "1"}
+                        ]
                     },
                     {
                         "type": "tophosts",
@@ -242,12 +242,12 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.0",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.0",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "1", "name": "columns.base_color.0", "value": ""},
                             {"type": "1", "name": "columns.name.1", "value": "IP AP"},
@@ -255,12 +255,12 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.1",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.1",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "1", "name": "columns.base_color.1", "value": ""},
                             {"type": "1", "name": "columns.name.2", "value": "MAC AP"},
@@ -270,12 +270,12 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.2",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.2",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.2", "value": "1"},
                             {"type": "0", "name": "columns.history.2", "value": "1"},
@@ -283,24 +283,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.3",
-                                "value": "Клиенты на 2.4 GHz",
+                                "value": "Клиенты на 2.4 GHz"
                             },
                             {"type": "0", "name": "columns.data.3", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.3",
-                                "value": "WirlessClients24Numbers",
+                                "value": "WirlessClients24Numbers"
                             },
                             {"type": "1", "name": "columns.timeshift.3", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.3",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.3",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.3", "value": "1"},
                             {"type": "0", "name": "columns.history.3", "value": "1"},
@@ -308,24 +308,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.4",
-                                "value": "Клиенты на 5 GHz",
+                                "value": "Клиенты на 5 GHz"
                             },
                             {"type": "0", "name": "columns.data.4", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.4",
-                                "value": "WirlessClients5Numbers",
+                                "value": "WirlessClients5Numbers"
                             },
                             {"type": "1", "name": "columns.timeshift.4", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.4",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.4",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.4", "value": "1"},
                             {"type": "0", "name": "columns.history.4", "value": "1"},
@@ -334,24 +334,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.5",
-                                "value": "Канал 2.4 GHz",
+                                "value": "Канал 2.4 GHz"
                             },
                             {"type": "0", "name": "columns.data.5", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.5",
-                                "value": "Channel for 24",
+                                "value": "Channel for 24"
                             },
                             {"type": "1", "name": "columns.timeshift.5", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.5",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.5",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.5", "value": "1"},
                             {"type": "0", "name": "columns.history.5", "value": "1"},
@@ -359,24 +359,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.6",
-                                "value": "Канал 5 GHz",
+                                "value": "Канал 5 GHz"
                             },
                             {"type": "0", "name": "columns.data.6", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.6",
-                                "value": "Channel for 5",
+                                "value": "Channel for 5"
                             },
                             {"type": "1", "name": "columns.timeshift.6", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.6",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.6",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.6", "value": "1"},
                             {"type": "0", "name": "columns.history.6", "value": "1"},
@@ -385,24 +385,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.7",
-                                "value": "УШ 2.4 GHz",
+                                "value": "УШ 2.4 GHz"
                             },
                             {"type": "0", "name": "columns.data.7", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.7",
-                                "value": "NoiseFloor24",
+                                "value": "NoiseFloor24"
                             },
                             {"type": "1", "name": "columns.timeshift.7", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.7",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.7",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.7", "value": "1"},
                             {"type": "0", "name": "columns.history.7", "value": "1"},
@@ -410,24 +410,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.8",
-                                "value": "УШ 5 GHz",
+                                "value": "УШ 5 GHz"
                             },
                             {"type": "0", "name": "columns.data.8", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.8",
-                                "value": "NoiseFloor5",
+                                "value": "NoiseFloor5"
                             },
                             {"type": "1", "name": "columns.timeshift.8", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.8",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.8",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.8", "value": "1"},
                             {"type": "0", "name": "columns.history.8", "value": "1"},
@@ -435,24 +435,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.9",
-                                "value": "Исх.трафик",
+                                "value": "Исх.трафик"
                             },
                             {"type": "0", "name": "columns.data.9", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.9",
-                                "value": "Interface eth2: Bits sent",
+                                "value": "Interface eth2: Bits sent"
                             },
                             {"type": "1", "name": "columns.timeshift.9", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.9",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.9",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "0", "name": "columns.display.9", "value": "1"},
                             {"type": "0", "name": "columns.history.9", "value": "1"},
@@ -460,24 +460,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.10",
-                                "value": "Вх.трафик",
+                                "value": "Вх.трафик"
                             },
                             {"type": "0", "name": "columns.data.10", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.10",
-                                "value": "Interface eth2: Bits received",
+                                "value": "Interface eth2: Bits received"
                             },
                             {"type": "1", "name": "columns.timeshift.10", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.10",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.10",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "0", "name": "columns.display.10", "value": "1"},
                             {"type": "0", "name": "columns.history.10", "value": "1"},
@@ -485,24 +485,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.11",
-                                "value": "Версия ПО",
+                                "value": "Версия ПО"
                             },
                             {"type": "0", "name": "columns.data.11", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.11",
-                                "value": "FWversion",
+                                "value": "FWversion"
                             },
                             {"type": "1", "name": "columns.timeshift.11", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.11",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.11",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.11", "value": "1"},
                             {"type": "0", "name": "columns.history.11", "value": "1"},
@@ -510,24 +510,24 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.12",
-                                "value": "Наличие обновления",
+                                "value": "Наличие обновления"
                             },
                             {"type": "0", "name": "columns.data.12", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.12",
-                                "value": "AvaFWversion",
+                                "value": "AvaFWversion"
                             },
                             {"type": "1", "name": "columns.timeshift.12", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.12",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.12",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.12", "value": "1"},
                             {"type": "0", "name": "columns.history.12", "value": "1"},
@@ -535,7 +535,7 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.item.0",
-                                "value": "Generic SNMP: ICMP ping",
+                                "value": "Generic SNMP: ICMP ping"
                             },
                             {"type": "1", "name": "columns.timeshift.0", "value": ""},
                             {"type": "0", "name": "columns.display.0", "value": "1"},
@@ -543,60 +543,60 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.0.0",
-                                "value": "FF465C",
+                                "value": "FF465C"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.0.0",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.0.1",
-                                "value": "7CB342",
+                                "value": "7CB342"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.0.1",
-                                "value": "1",
+                                "value": "1"
                             },
                             {"type": "0", "name": "order", "value": "3"},
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.7.0",
-                                "value": "FF8A65",
+                                "value": "FF8A65"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.7.0",
-                                "value": "-50",
+                                "value": "-50"
                             },
                             {
                                 "type": "1",
                                 "name": "columns.name.13",
-                                "value": "Время работы",
+                                "value": "Время работы"
                             },
                             {"type": "0", "name": "columns.data.13", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.13",
-                                "value": "Generic SNMP: Uptime (hardware)",
+                                "value": "Generic SNMP: Uptime (hardware)"
                             },
                             {"type": "1", "name": "columns.timeshift.13", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.13",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.13",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "0", "name": "columns.display.13", "value": "1"},
                             {"type": "0", "name": "columns.history.13", "value": "1"},
-                            {"type": "1", "name": "columns.base_color.13", "value": ""},
-                        ],
+                            {"type": "1", "name": "columns.base_color.13", "value": ""}
+                        ]
                     },
                     {
                         "type": "item",
@@ -613,8 +613,8 @@ class ZabbixCreateCalls(ZabbixBase):
                             {"type": "0", "name": "show", "value": "4"},
                             {"type": "0", "name": "dynamic", "value": "1"},
                             {"type": "0", "name": "rf_rate", "value": "10"},
-                            {"type": "4", "name": "itemid", "value": sum_clients},
-                        ],
+                            {"type": "4", "name": "itemid", "value": sum_clients}
+                        ]
                     },
                     {
                         "type": "tophosts",
@@ -631,42 +631,42 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.0",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.0",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "1", "name": "columns.base_color.0", "value": ""},
                             {"type": "0", "name": "rf_rate", "value": "10"},
                             {
                                 "type": "1",
                                 "name": "columns.name.1",
-                                "value": "Mac WiFI Client",
+                                "value": "Mac WiFI Client"
                             },
                             {"type": "0", "name": "columns.data.1", "value": "2"},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.1",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.1",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "1", "name": "columns.base_color.1", "value": ""},
                             {"type": "0", "name": "column", "value": "2"},
                             {
                                 "type": "1",
                                 "name": "columns.text.0",
-                                "value": "{HOST.CONN}",
+                                "value": "{HOST.CONN}"
                             },
                             {
                                 "type": "1",
                                 "name": "columns.name.2",
-                                "value": "Уровень сигнала",
+                                "value": "Уровень сигнала"
                             },
                             {"type": "0", "name": "columns.data.2", "value": "1"},
                             {"type": "1", "name": "columns.item.2", "value": "RSSI24"},
@@ -674,12 +674,12 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.2",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.2",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.2", "value": "1"},
                             {"type": "0", "name": "columns.history.2", "value": "1"},
@@ -687,58 +687,58 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.0",
-                                "value": "FF0000",
+                                "value": "FF0000"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.0",
-                                "value": "-95",
+                                "value": "-95"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.1",
-                                "value": "FF8000",
+                                "value": "FF8000"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.1",
-                                "value": "-80",
+                                "value": "-80"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.2",
-                                "value": "FFFF00",
+                                "value": "FFFF00"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.2",
-                                "value": "-75",
+                                "value": "-75"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.3",
-                                "value": "8BC34A",
+                                "value": "8BC34A"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.3",
-                                "value": "-60",
+                                "value": "-60"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.4",
-                                "value": "43A047",
+                                "value": "43A047"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.4",
-                                "value": "-10",
+                                "value": "-10"
                             },
                             {"type": "0", "name": "count", "value": "100"},
                             {
                                 "type": "1",
                                 "name": "columns.name.3",
-                                "value": "Сигнал/ШУМ",
+                                "value": "Сигнал/ШУМ"
                             },
                             {"type": "0", "name": "columns.data.3", "value": "1"},
                             {"type": "1", "name": "columns.item.3", "value": "SNR24"},
@@ -746,12 +746,12 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.3",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.3",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "0", "name": "columns.display.3", "value": "1"},
                             {"type": "0", "name": "columns.history.3", "value": "1"},
@@ -760,29 +760,29 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.4",
-                                "value": "Длительность подключения",
+                                "value": "Длительность подключения"
                             },
                             {"type": "0", "name": "columns.data.4", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.4",
-                                "value": "ConnectedTime24",
+                                "value": "ConnectedTime24"
                             },
                             {"type": "1", "name": "columns.timeshift.4", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.4",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.4",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.4", "value": "1"},
                             {"type": "0", "name": "columns.history.4", "value": "1"},
-                            {"type": "1", "name": "columns.base_color.4", "value": ""},
-                        ],
+                            {"type": "1", "name": "columns.base_color.4", "value": ""}
+                        ]
                     },
                     {
                         "type": "svggraph",
@@ -796,17 +796,17 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "ds.hosts.0.0",
-                                "value": "Zabbix server",
+                                "value": "Zabbix server"
                             },
                             {
                                 "type": "1",
                                 "name": "ds.items.0.0",
-                                "value": "Summ wifi clients",
+                                "value": "Summ wifi clients"
                             },
                             {"type": "1", "name": "ds.color.0", "value": "80FF00"},
                             {"type": "0", "name": "righty", "value": "0"},
-                            {"type": "0", "name": "legend_statistic", "value": "1"},
-                        ],
+                            {"type": "0", "name": "legend_statistic", "value": "1"}
+                        ]
                     },
                     {
                         "type": "tophosts",
@@ -824,40 +824,40 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.0",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.0",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "1", "name": "columns.base_color.0", "value": ""},
                             {
                                 "type": "1",
                                 "name": "columns.text.0",
-                                "value": "{HOST.CONN}",
+                                "value": "{HOST.CONN}"
                             },
                             {
                                 "type": "1",
                                 "name": "columns.name.1",
-                                "value": "Mac WiFI Client",
+                                "value": "Mac WiFI Client"
                             },
                             {"type": "0", "name": "columns.data.1", "value": "2"},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.1",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.1",
-                                "value": "2",
+                                "value": "2"
                             },
                             {"type": "1", "name": "columns.base_color.1", "value": ""},
                             {
                                 "type": "1",
                                 "name": "columns.name.2",
-                                "value": "Уровень сигнала",
+                                "value": "Уровень сигнала"
                             },
                             {"type": "0", "name": "columns.data.2", "value": "1"},
                             {"type": "1", "name": "columns.item.2", "value": "RSSI5"},
@@ -865,12 +865,12 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.2",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.2",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.2", "value": "1"},
                             {"type": "0", "name": "columns.history.2", "value": "1"},
@@ -878,7 +878,7 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columns.name.3",
-                                "value": "Сигнал/ШУМ",
+                                "value": "Сигнал/ШУМ"
                             },
                             {"type": "0", "name": "columns.data.3", "value": "1"},
                             {"type": "1", "name": "columns.item.3", "value": "SNR5"},
@@ -886,12 +886,12 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.3",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.3",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.3", "value": "1"},
                             {"type": "0", "name": "columns.history.3", "value": "1"},
@@ -900,81 +900,81 @@ class ZabbixCreateCalls(ZabbixBase):
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.0",
-                                "value": "FF0000",
+                                "value": "FF0000"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.0",
-                                "value": "-95",
+                                "value": "-95"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.1",
-                                "value": "FF8000",
+                                "value": "FF8000"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.1",
-                                "value": "-80",
+                                "value": "-80"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.2",
-                                "value": "FFFF00",
+                                "value": "FFFF00"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.2",
-                                "value": "-75",
+                                "value": "-75"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.3",
-                                "value": "9CCC65",
+                                "value": "9CCC65"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.3",
-                                "value": "-60",
+                                "value": "-60"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.color.2.4",
-                                "value": "4CAF50",
+                                "value": "4CAF50"
                             },
                             {
                                 "type": "1",
                                 "name": "columnsthresholds.threshold.2.4",
-                                "value": "-10",
+                                "value": "-10"
                             },
                             {"type": "0", "name": "order", "value": "3"},
                             {
                                 "type": "1",
                                 "name": "columns.name.4",
-                                "value": "Длительность подключения",
+                                "value": "Длительность подключения"
                             },
                             {"type": "0", "name": "columns.data.4", "value": "1"},
                             {
                                 "type": "1",
                                 "name": "columns.item.4",
-                                "value": "ConnectedTime5",
+                                "value": "ConnectedTime5"
                             },
                             {"type": "1", "name": "columns.timeshift.4", "value": ""},
                             {
                                 "type": "0",
                                 "name": "columns.aggregate_function.4",
-                                "value": "0",
+                                "value": "0"
                             },
                             {
                                 "type": "0",
                                 "name": "columns.decimal_places.4",
-                                "value": "0",
+                                "value": "0"
                             },
                             {"type": "0", "name": "columns.display.4", "value": "1"},
                             {"type": "0", "name": "columns.history.4", "value": "1"},
-                            {"type": "1", "name": "columns.base_color.4", "value": ""},
-                        ],
-                    },
-                ],
+                            {"type": "1", "name": "columns.base_color.4", "value": ""}
+                        ]
+                    }
+                ]
             }
         ]
