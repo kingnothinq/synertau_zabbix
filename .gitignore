@@ -98,4 +98,5 @@ pip-selfcheck.json
 
 !/env_vars/.ZBX_DB_CERT_FILE/
 !/env_vars/
-!/.env
+!/env_vars/.env
+!/.mypy_cache/

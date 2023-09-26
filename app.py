@@ -1,4 +1,5 @@
 import logging
+import os
 from pathlib import Path
 from typing import Optional
 
@@ -10,7 +11,7 @@ from clients import ZabbixClient
 # Build path inside the project
 ROOT_DIR: Path = Path(__file__).parent
 # Environment
-dotenv_path = ROOT_DIR / "src" / ".env"
+dotenv_path = ROOT_DIR / "env_vars" / ".env_app"
 if dotenv_path.exists():
     load_dotenv(dotenv_path)
 # Logger
@@ -143,8 +144,9 @@ class ZabbixConfiguration:
         """
 
         group = self.get_host_group("CPE_Wive-NG")
+        iperf = os.getenv("IPERF_SERVER")
 
-        request = self.api.create_scripts(group)
+        request = self.api.create_scripts(group, iperf)
         for script in request:
             response = self.client.call_api(data=script)
             if response and not ("error" in response):

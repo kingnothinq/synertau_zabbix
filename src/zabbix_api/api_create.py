@@ -42,12 +42,14 @@ class ZabbixCreateCalls(ZabbixBase):
         }
         return self.base_json | {"method": method} | params
 
-    def create_scripts(self, groupid: str) -> list[dict]:
+    def create_scripts(self, groupid: str, iperf: str) -> list[dict]:
         """
         Create Scripts.
         https://www.zabbix.com/documentation/current/en/manual/api/reference/script/create
 
         :param str groupid:
+        :param str iperf:
+        :param str speedtest:
         :return:
         """
 
@@ -83,7 +85,7 @@ class ZabbixCreateCalls(ZabbixBase):
         # Speedtest Iperf
         script = deepcopy(params)
         script["params"]["name"] = "Speedtest Iperf"
-        script["params"]["command"] = "iperf3 -c 192.168.88.88 -R"
+        script["params"]["command"] = f"iperf3 -c {iperf} -R"
         scripts.append(self.base_json | {"method": method} | script)
         # View Wi-Fi Clients Metrics
         script = deepcopy(params)
