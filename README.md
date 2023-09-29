@@ -18,17 +18,19 @@ Install the appropriate software:
 
 ## Usage
 
-1. To configure the application copy `.env.sample` into `.env` file:
-    ```shell
-    cp .env.sample .env
-    ```
-   
-    This file contains environment variables that will share their values across the application.
-    The sample file (`.env.sample`) contains a set of variables with default values. 
-    So it can be configured depending on the environment.
+1. Configure Zabbix Server following the official documentation:
+   [Zabbix from containers](https://www.zabbix.com/documentation/current/en/manual/installation/containers).
 
-    Set received access tokens as environment variable values (in `.env` file):
-    - `ZABBIX_API_KEY` – Zabbix API Token (Users -> API Tokens -> Create API token)
+   You can modify this part according to your standards.
+   
+   The example provided in this project: Zabbix Nginx Frontend + PostgreSQL Backend.
+
+   To set it up, fulfill the variables and parameters in the next configuration files in the `env_vars` folder:
+   - `.env_db_pgsql` – PostgreSQL Server configuration
+   - `.POSTGRES_USER` – PostgreSQL User
+   - `.POSTGRES_PASSWORD` – PostgreSQL Password
+   - `.env_srv` – Zabbix Server configuration
+   - `.env_web` – Zabbix Frontend Server configuration
 
 2. Build the container using Docker Compose:
     ```shell
@@ -43,43 +45,26 @@ Install the appropriate software:
     ```
    When containers are up server starts at [http://0.0.0.0:80](http://0.0.0.0:80). You can open it in your browser.
 
-### Automation commands
-
-The project contains a special `Makefile` that provides shortcuts for a set of commands:
-1. Build the Docker container:
+4. The server can be configured to have the Synertau templates in two ways:
+   - Using a script
+   
+   To configure the Synertau application copy `.env_app.sample` into `.env_app` file in the env_vars folder:
     ```shell
-    make build
+    cp .env_app.sample .env_app
     ```
+   
+   This file contains environment variables that will share their values across the application.
+   The sample file (`.env_app.sample`) contains a set of variables with default values. 
+   So it can be configured depending on the environment.
+   
+   Set received access tokens as environment variable values (in `.env_app` file):
+   - `ZABBIX_SERVER` – Zabbix Server URL or IP
+   - `ZABBIX_PORT` – Zabbix Server Port
+   - `ZABBIX_API_KEY` – Given Zabbix API Token (Users -> API Tokens -> Create API token)
+   - `IPERF_SERVER` – Your Iperf Server (used in Scripts)
 
-2. Generate Sphinx documentation run:
-    ```shell
-    make docs-html
-    ```
-
-3. Autoformat source code:
-    ```shell
-    make format
-    ```
-
-4. Static analysis (linters):
-    ```shell
-    make lint
-    ```
-
-5. Autotests:
-    ```shell
-    make test
-    ```
-
-    The test coverage report will be located at `src/htmlcov/index.html`. 
-    So you can estimate the quality of automated test coverage.
-
-6. Run autoformat, linters and tests in one command:
-    ```shell
-    make all
-    ```
-
-Run these commands from the source directory where `Makefile` is located.
+   - Using Postman collection
+   Please read README.md in the `postman` folder.
 
 ## Documentation
 

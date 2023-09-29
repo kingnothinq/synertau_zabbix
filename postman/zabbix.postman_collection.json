@@ -7,247 +7,503 @@
 	},
 	"item": [
 		{
-			"name": "Get View Group",
-			"event": [
+			"name": "Dashboard",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var obj = pm.response.json()[\"result\"][0][\"groupid\"];\r",
-							"pm.environment.set(\"wive_group\", obj);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+					"name": "Get View Group",
+					"event": [
 						{
-							"key": "token",
-							"value": "{{API_Token}}",
-							"type": "string"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var obj = pm.response.json()[\"result\"][0][\"groupid\"];\r",
+									"pm.environment.set(\"wive_group\", obj);"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json-rpc",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"hostgroup.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"CPE_Wive-NG\"}\r\n            },\r\n    \"id\": 1\r\n}"
-				},
-				"url": {
-					"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
-					"protocol": "http",
-					"host": [
-						"{{URL}}"
 					],
-					"port": "{{PORT}}",
-					"path": [
-						"api_jsonrpc.php"
-					]
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"hostgroup.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"CPE_Wive-NG\"}\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WiFi Client 5 Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var obj = pm.response.json()[\"result\"][0][\"groupid\"];\r",
+									"pm.environment.set(\"group_5\", obj);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"hostgroup.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"WIFI CLIENTS 5\"}\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WiFi Client 24 Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var obj = pm.response.json()[\"result\"][0][\"groupid\"];\r",
+									"pm.environment.set(\"group_24\", obj);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"hostgroup.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"WIFI CLIENTS 24\"}\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Summ WiFi clients Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var obj = pm.response.json()[\"result\"][0][\"itemid\"];\r",
+									"pm.environment.set(\"sum_clients\", obj);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"item.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"Summ wifi clients\"}\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"dashboard.create\",\r\n    \"params\": {\r\n                \"name\": \"CPE Wive-NG\",\r\n                \"display_period\": \"10\",\r\n                \"userid\": \"1\",\r\n                \"private\": \"1\",\r\n                \"auto_start\": \"1\",\r\n                \"pages\": [\r\n            {\r\n                \"name\": \"\",\r\n                \"display_period\": \"0\",\r\n                \"widgets\": [\r\n                    {\r\n                        \"type\": \"hostavail\",\r\n                        \"name\": \"Доступность узлов сети\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"0\",\r\n                        \"width\": \"7\",\r\n                        \"height\": \"2\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{wive_group}}},\r\n                            {\"type\": \"0\", \"name\": \"interface_type\", \"value\": \"2\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"problemhosts\",\r\n                        \"name\": \"\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"2\",\r\n                        \"width\": \"7\",\r\n                        \"height\": \"2\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{wive_group}}},\r\n                            {\"type\": \"0\", \"name\": \"hide_empty_groups\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"ext_ack\", \"value\": \"1\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"tophosts\",\r\n                        \"name\": \"Информация о точках доступа\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"4\",\r\n                        \"width\": \"24\",\r\n                        \"height\": \"3\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{wive_group}}},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.0\", \"value\": \"Ping\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.0\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.0\", \"value\": \"\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.1\", \"value\": \"IP AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.1\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.1\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.1\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.1\", \"value\": \"\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.2\", \"value\": \"MAC AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.2\", \"value\": \"LAN mac\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.2\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.3\",\r\n                                \"value\": \"Клиенты на 2.4 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.3\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.3\",\r\n                                \"value\": \"WirlessClients24Numbers\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.3\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.4\",\r\n                                \"value\": \"Клиенты на 5 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.4\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.4\",\r\n                                \"value\": \"WirlessClients5Numbers\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.4\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.4\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.4\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.4\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.5\",\r\n                                \"value\": \"Канал 2.4 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.5\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.5\",\r\n                                \"value\": \"Channel for 24\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.5\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.5\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.5\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.5\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.5\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.5\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.6\",\r\n                                \"value\": \"Канал 5 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.6\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.6\",\r\n                                \"value\": \"Channel for 5\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.6\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.6\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.6\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.6\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.6\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.6\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"count\", \"value\": \"50\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.7\",\r\n                                \"value\": \"УШ 2.4 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.7\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.7\",\r\n                                \"value\": \"NoiseFloor24\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.7\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.7\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.7\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.7\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.7\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.7\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.8\",\r\n                                \"value\": \"УШ 5 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.8\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.8\",\r\n                                \"value\": \"NoiseFloor5\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.8\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.8\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.8\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.8\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.8\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.8\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.9\",\r\n                                \"value\": \"Исх.трафик\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.9\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.9\",\r\n                                \"value\": \"Interface eth2: Bits sent\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.9\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.9\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.9\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.9\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.9\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.9\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.10\",\r\n                                \"value\": \"Вх.трафик\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.10\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.10\",\r\n                                \"value\": \"Interface eth2: Bits received\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.10\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.10\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.10\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.10\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.10\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.10\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.11\",\r\n                                \"value\": \"Версия ПО\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.11\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.11\",\r\n                                \"value\": \"FWversion\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.11\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.11\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.11\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.11\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.11\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.11\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.12\",\r\n                                \"value\": \"Наличие обновления\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.12\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.12\",\r\n                                \"value\": \"AvaFWversion\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.12\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.12\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.12\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.12\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.12\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.12\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.0\",\r\n                                \"value\": \"Generic SNMP: ICMP ping\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.0\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.display.0\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.0\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.0.0\",\r\n                                \"value\": \"FF465C\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.0.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.0.1\",\r\n                                \"value\": \"7CB342\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.0.1\",\r\n                                \"value\": \"1\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"order\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.7.0\",\r\n                                \"value\": \"FF8A65\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.7.0\",\r\n                                \"value\": \"-50\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.13\",\r\n                                \"value\": \"Время работы\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.13\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.13\",\r\n                                \"value\": \"Generic SNMP: Uptime (hardware)\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.13\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.13\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.13\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.13\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.13\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.13\", \"value\": \"\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"item\",\r\n                        \"name\": \"Общее количество Wi-Fi Клиентов\",\r\n                        \"x\": \"17\",\r\n                        \"y\": \"0\",\r\n                        \"width\": \"7\",\r\n                        \"height\": \"4\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"0\", \"name\": \"adv_conf\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"decimal_places\", \"value\": \"0\"},\r\n                            {\"type\": \"0\", \"name\": \"show\", \"value\": \"2\"},\r\n                            {\"type\": \"0\", \"name\": \"show\", \"value\": \"4\"},\r\n                            {\"type\": \"0\", \"name\": \"dynamic\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\"type\": \"4\", \"name\": \"itemid\", \"value\": {{sum_clients}}}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"tophosts\",\r\n                        \"name\": \"Информация о подключенных клиентах 2.4 GHz\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"7\",\r\n                        \"width\": \"12\",\r\n                        \"height\": \"5\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{group_24}}},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.0\", \"value\": \"IP AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.0\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.0\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.0\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.1\",\r\n                                \"value\": \"Mac WiFI Client\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.1\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.1\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.1\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.1\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"column\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.text.0\",\r\n                                \"value\": \"{HOST.CONN}\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.2\",\r\n                                \"value\": \"Уровень сигнала\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.2\", \"value\": \"RSSI24\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.2\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.0\",\r\n                                \"value\": \"FF0000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.0\",\r\n                                \"value\": \"-95\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.1\",\r\n                                \"value\": \"FF8000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.1\",\r\n                                \"value\": \"-80\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.2\",\r\n                                \"value\": \"FFFF00\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.2\",\r\n                                \"value\": \"-75\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.3\",\r\n                                \"value\": \"8BC34A\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.3\",\r\n                                \"value\": \"-60\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.4\",\r\n                                \"value\": \"43A047\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.4\",\r\n                                \"value\": \"-10\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"count\", \"value\": \"100\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.3\",\r\n                                \"value\": \"Сигнал/ШУМ\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.3\", \"value\": \"SNR24\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.3\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.3\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.3\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"order\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.4\",\r\n                                \"value\": \"Длительность подключения\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.4\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.4\",\r\n                                \"value\": \"ConnectedTime24\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.4\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.4\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.4\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.4\", \"value\": \"\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"svggraph\",\r\n                        \"name\": \"Колличество подключенных клиентов\",\r\n                        \"x\": \"7\",\r\n                        \"y\": \"0\",\r\n                        \"width\": \"10\",\r\n                        \"height\": \"4\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"ds.hosts.0.0\",\r\n                                \"value\": \"Zabbix server\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"ds.items.0.0\",\r\n                                \"value\": \"Summ wifi clients\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"ds.color.0\", \"value\": \"80FF00\"},\r\n                            {\"type\": \"0\", \"name\": \"righty\", \"value\": \"0\"},\r\n                            {\"type\": \"0\", \"name\": \"legend_statistic\", \"value\": \"1\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"tophosts\",\r\n                        \"name\": \"Информация о подключенных клиентак 5Ghz\",\r\n                        \"x\": \"12\",\r\n                        \"y\": \"7\",\r\n                        \"width\": \"12\",\r\n                        \"height\": \"5\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{group_5}}},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.0\", \"value\": \"IP AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.0\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.0\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.0\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.text.0\",\r\n                                \"value\": \"{HOST.CONN}\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.1\",\r\n                                \"value\": \"Mac WiFI Client\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.1\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.1\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.1\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.1\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.2\",\r\n                                \"value\": \"Уровень сигнала\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.2\", \"value\": \"RSSI5\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.2\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.3\",\r\n                                \"value\": \"Сигнал/ШУМ\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.3\", \"value\": \"SNR5\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.3\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.3\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"column\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.0\",\r\n                                \"value\": \"FF0000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.0\",\r\n                                \"value\": \"-95\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.1\",\r\n                                \"value\": \"FF8000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.1\",\r\n                                \"value\": \"-80\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.2\",\r\n                                \"value\": \"FFFF00\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.2\",\r\n                                \"value\": \"-75\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.3\",\r\n                                \"value\": \"9CCC65\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.3\",\r\n                                \"value\": \"-60\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.4\",\r\n                                \"value\": \"4CAF50\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.4\",\r\n                                \"value\": \"-10\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"order\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.4\",\r\n                                \"value\": \"Длительность подключения\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.4\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.4\",\r\n                                \"value\": \"ConnectedTime5\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.4\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.4\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.4\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.4\", \"value\": \"\"}\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n                \"users\": [{\"userid\": \"1\", \"permission\": \"2\"}],\r\n                \"userGroups\": [{\"usrgrpid\": \"7\", \"permission\": \"2\"}]\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get WiFi Client 5 Group",
-			"event": [
+			"name": "Scripts",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var obj = pm.response.json()[\"result\"][0][\"groupid\"];\r",
-							"pm.environment.set(\"group_5\", obj);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+					"name": "Get View Group",
+					"event": [
 						{
-							"key": "token",
-							"value": "{{API_Token}}",
-							"type": "string"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var obj = pm.response.json()[\"result\"][0][\"groupid\"];\r",
+									"pm.environment.set(\"wive_group\", obj);"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json-rpc",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"hostgroup.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"WIFI CLIENTS 5\"}\r\n            },\r\n    \"id\": 1\r\n}"
-				},
-				"url": {
-					"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
-					"protocol": "http",
-					"host": [
-						"{{URL}}"
 					],
-					"port": "{{PORT}}",
-					"path": [
-						"api_jsonrpc.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get WiFi Client 24 Group",
-			"event": [
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"hostgroup.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"CPE_Wive-NG\"}\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var obj = pm.response.json()[\"result\"][0][\"groupid\"];\r",
-							"pm.environment.set(\"group_24\", obj);"
+					"name": "Create Scan Radio Script",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
 						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{API_Token}}",
-							"type": "string"
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"script.create\",\r\n    \"params\": {\r\n\t\t\"host_access\": \"2\",\r\n\t\t\"usrgrpid\": \"0\",\r\n\t\t\"groupid\": {{wive_group}},\r\n\t\t\"type\": \"0\",\r\n\t\t\"execute_on\": \"0\",\r\n\t\t\"scope\": \"2\",\r\n\t\t\"menu_path\": \"Scripts\",\r\n\t\t\"name\": \"Scan Radio\",\r\n\t\t\"command\": \"wl scan\"\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json-rpc",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"hostgroup.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"WIFI CLIENTS 24\"}\r\n            },\r\n    \"id\": 1\r\n}"
-				},
-				"url": {
-					"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
-					"protocol": "http",
-					"host": [
-						"{{URL}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api_jsonrpc.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Summ WiFi clients Item",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var obj = pm.response.json()[\"result\"][0][\"itemid\"];\r",
-							"pm.environment.set(\"sum_clients\", obj);"
+					"name": "Create LLDP Script",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
 						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{API_Token}}",
-							"type": "string"
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"script.create\",\r\n    \"params\": {\r\n\t\t\"host_access\": \"2\",\r\n\t\t\"usrgrpid\": \"0\",\r\n\t\t\"groupid\": {{wive_group}},\r\n\t\t\"type\": \"0\",\r\n\t\t\"execute_on\": \"0\",\r\n\t\t\"scope\": \"2\",\r\n\t\t\"menu_path\": \"Scripts\",\r\n\t\t\"name\": \"Show LLDP\",\r\n\t\t\"command\": \"lldpcli show neighbors\"\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json-rpc",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"item.get\",\r\n    \"params\": {\r\n                \"output\": \"extend\",\r\n                \"filter\": {\"name\": \"Summ wifi clients\"}\r\n            },\r\n    \"id\": 1\r\n}"
-				},
-				"url": {
-					"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
-					"protocol": "http",
-					"host": [
-						"{{URL}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api_jsonrpc.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Dashboard",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{API_Token}}",
-							"type": "string"
+				{
+					"name": "Create Wi-Fi Status Script",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"script.create\",\r\n    \"params\": {\r\n\t\t\"host_access\": \"2\",\r\n\t\t\"usrgrpid\": \"0\",\r\n\t\t\"groupid\": {{wive_group}},\r\n\t\t\"type\": \"0\",\r\n\t\t\"execute_on\": \"0\",\r\n\t\t\"scope\": \"2\",\r\n\t\t\"menu_path\": \"Scripts\",\r\n\t\t\"name\": \"Show WIFI Status\",\r\n\t\t\"command\": \"wl status\"\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json-rpc",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"dashboard.create\",\r\n    \"params\": {\r\n                \"name\": \"CPE Wive-NG\",\r\n                \"display_period\": \"10\",\r\n                \"userid\": \"1\",\r\n                \"private\": \"1\",\r\n                \"auto_start\": \"1\",\r\n                \"pages\": [\r\n            {\r\n                \"name\": \"\",\r\n                \"display_period\": \"0\",\r\n                \"widgets\": [\r\n                    {\r\n                        \"type\": \"hostavail\",\r\n                        \"name\": \"Доступность узлов сети\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"0\",\r\n                        \"width\": \"7\",\r\n                        \"height\": \"2\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{wive_group}}},\r\n                            {\"type\": \"0\", \"name\": \"interface_type\", \"value\": \"2\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"problemhosts\",\r\n                        \"name\": \"\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"2\",\r\n                        \"width\": \"7\",\r\n                        \"height\": \"2\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{wive_group}}},\r\n                            {\"type\": \"0\", \"name\": \"hide_empty_groups\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"ext_ack\", \"value\": \"1\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"tophosts\",\r\n                        \"name\": \"Информация о точках доступа\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"4\",\r\n                        \"width\": \"24\",\r\n                        \"height\": \"3\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{wive_group}}},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.0\", \"value\": \"Ping\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.0\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.0\", \"value\": \"\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.1\", \"value\": \"IP AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.1\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.1\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.1\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.1\", \"value\": \"\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.2\", \"value\": \"MAC AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.2\", \"value\": \"LAN mac\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.2\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.3\",\r\n                                \"value\": \"Клиенты на 2.4 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.3\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.3\",\r\n                                \"value\": \"WirlessClients24Numbers\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.3\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.4\",\r\n                                \"value\": \"Клиенты на 5 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.4\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.4\",\r\n                                \"value\": \"WirlessClients5Numbers\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.4\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.4\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.4\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.4\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.5\",\r\n                                \"value\": \"Канал 2.4 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.5\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.5\",\r\n                                \"value\": \"Channel for 24\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.5\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.5\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.5\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.5\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.5\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.5\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.6\",\r\n                                \"value\": \"Канал 5 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.6\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.6\",\r\n                                \"value\": \"Channel for 5\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.6\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.6\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.6\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.6\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.6\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.6\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"count\", \"value\": \"50\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.7\",\r\n                                \"value\": \"УШ 2.4 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.7\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.7\",\r\n                                \"value\": \"NoiseFloor24\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.7\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.7\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.7\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.7\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.7\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.7\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.8\",\r\n                                \"value\": \"УШ 5 GHz\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.8\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.8\",\r\n                                \"value\": \"NoiseFloor5\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.8\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.8\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.8\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.8\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.8\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.8\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.9\",\r\n                                \"value\": \"Исх.трафик\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.9\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.9\",\r\n                                \"value\": \"Interface eth2: Bits sent\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.9\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.9\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.9\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.9\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.9\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.9\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.10\",\r\n                                \"value\": \"Вх.трафик\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.10\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.10\",\r\n                                \"value\": \"Interface eth2: Bits received\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.10\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.10\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.10\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.10\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.10\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.10\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.11\",\r\n                                \"value\": \"Версия ПО\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.11\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.11\",\r\n                                \"value\": \"FWversion\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.11\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.11\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.11\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.11\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.11\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.11\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.12\",\r\n                                \"value\": \"Наличие обновления\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.12\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.12\",\r\n                                \"value\": \"AvaFWversion\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.12\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.12\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.12\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.12\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.12\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.12\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.0\",\r\n                                \"value\": \"Generic SNMP: ICMP ping\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.0\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.display.0\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.0\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.0.0\",\r\n                                \"value\": \"FF465C\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.0.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.0.1\",\r\n                                \"value\": \"7CB342\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.0.1\",\r\n                                \"value\": \"1\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"order\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.7.0\",\r\n                                \"value\": \"FF8A65\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.7.0\",\r\n                                \"value\": \"-50\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.13\",\r\n                                \"value\": \"Время работы\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.13\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.13\",\r\n                                \"value\": \"Generic SNMP: Uptime (hardware)\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.13\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.13\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.13\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.13\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.13\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.13\", \"value\": \"\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"item\",\r\n                        \"name\": \"Общее количество Wi-Fi Клиентов\",\r\n                        \"x\": \"17\",\r\n                        \"y\": \"0\",\r\n                        \"width\": \"7\",\r\n                        \"height\": \"4\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"0\", \"name\": \"adv_conf\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"decimal_places\", \"value\": \"0\"},\r\n                            {\"type\": \"0\", \"name\": \"show\", \"value\": \"2\"},\r\n                            {\"type\": \"0\", \"name\": \"show\", \"value\": \"4\"},\r\n                            {\"type\": \"0\", \"name\": \"dynamic\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\"type\": \"4\", \"name\": \"itemid\", \"value\": {{sum_clients}}}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"tophosts\",\r\n                        \"name\": \"Информация о подключенных клиентах 2.4 GHz\",\r\n                        \"x\": \"0\",\r\n                        \"y\": \"7\",\r\n                        \"width\": \"12\",\r\n                        \"height\": \"5\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{group_24}}},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.0\", \"value\": \"IP AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.0\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.0\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.0\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.1\",\r\n                                \"value\": \"Mac WiFI Client\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.1\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.1\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.1\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.1\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"column\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.text.0\",\r\n                                \"value\": \"{HOST.CONN}\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.2\",\r\n                                \"value\": \"Уровень сигнала\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.2\", \"value\": \"RSSI24\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.2\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.0\",\r\n                                \"value\": \"FF0000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.0\",\r\n                                \"value\": \"-95\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.1\",\r\n                                \"value\": \"FF8000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.1\",\r\n                                \"value\": \"-80\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.2\",\r\n                                \"value\": \"FFFF00\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.2\",\r\n                                \"value\": \"-75\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.3\",\r\n                                \"value\": \"8BC34A\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.3\",\r\n                                \"value\": \"-60\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.4\",\r\n                                \"value\": \"43A047\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.4\",\r\n                                \"value\": \"-10\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"count\", \"value\": \"100\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.3\",\r\n                                \"value\": \"Сигнал/ШУМ\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.3\", \"value\": \"SNR24\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.3\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.3\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.3\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"order\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.4\",\r\n                                \"value\": \"Длительность подключения\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.4\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.4\",\r\n                                \"value\": \"ConnectedTime24\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.4\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.4\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.4\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.4\", \"value\": \"\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"svggraph\",\r\n                        \"name\": \"Колличество подключенных клиентов\",\r\n                        \"x\": \"7\",\r\n                        \"y\": \"0\",\r\n                        \"width\": \"10\",\r\n                        \"height\": \"4\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"ds.hosts.0.0\",\r\n                                \"value\": \"Zabbix server\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"ds.items.0.0\",\r\n                                \"value\": \"Summ wifi clients\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"ds.color.0\", \"value\": \"80FF00\"},\r\n                            {\"type\": \"0\", \"name\": \"righty\", \"value\": \"0\"},\r\n                            {\"type\": \"0\", \"name\": \"legend_statistic\", \"value\": \"1\"}\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"tophosts\",\r\n                        \"name\": \"Информация о подключенных клиентак 5Ghz\",\r\n                        \"x\": \"12\",\r\n                        \"y\": \"7\",\r\n                        \"width\": \"12\",\r\n                        \"height\": \"5\",\r\n                        \"view_mode\": \"0\",\r\n                        \"fields\": [\r\n                            {\"type\": \"0\", \"name\": \"rf_rate\", \"value\": \"10\"},\r\n                            {\"type\": \"2\", \"name\": \"groupids\", \"value\": {{group_5}}},\r\n                            {\"type\": \"1\", \"name\": \"columns.name.0\", \"value\": \"IP AP\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.data.0\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.0\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.0\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.0\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.text.0\",\r\n                                \"value\": \"{HOST.CONN}\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.1\",\r\n                                \"value\": \"Mac WiFI Client\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.1\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.1\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.1\",\r\n                                \"value\": \"2\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.1\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.2\",\r\n                                \"value\": \"Уровень сигнала\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.2\", \"value\": \"RSSI5\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.2\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.2\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.2\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.2\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.3\",\r\n                                \"value\": \"Сигнал/ШУМ\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.item.3\", \"value\": \"SNR5\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.3\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.3\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.3\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.3\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.3\", \"value\": \"\"},\r\n                            {\"type\": \"0\", \"name\": \"column\", \"value\": \"2\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.0\",\r\n                                \"value\": \"FF0000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.0\",\r\n                                \"value\": \"-95\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.1\",\r\n                                \"value\": \"FF8000\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.1\",\r\n                                \"value\": \"-80\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.2\",\r\n                                \"value\": \"FFFF00\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.2\",\r\n                                \"value\": \"-75\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.3\",\r\n                                \"value\": \"9CCC65\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.3\",\r\n                                \"value\": \"-60\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.color.2.4\",\r\n                                \"value\": \"4CAF50\"\r\n                            },\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columnsthresholds.threshold.2.4\",\r\n                                \"value\": \"-10\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"order\", \"value\": \"3\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.name.4\",\r\n                                \"value\": \"Длительность подключения\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.data.4\", \"value\": \"1\"},\r\n                            {\r\n                                \"type\": \"1\",\r\n                                \"name\": \"columns.item.4\",\r\n                                \"value\": \"ConnectedTime5\"\r\n                            },\r\n                            {\"type\": \"1\", \"name\": \"columns.timeshift.4\", \"value\": \"\"},\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.aggregate_function.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\r\n                                \"type\": \"0\",\r\n                                \"name\": \"columns.decimal_places.4\",\r\n                                \"value\": \"0\"\r\n                            },\r\n                            {\"type\": \"0\", \"name\": \"columns.display.4\", \"value\": \"1\"},\r\n                            {\"type\": \"0\", \"name\": \"columns.history.4\", \"value\": \"1\"},\r\n                            {\"type\": \"1\", \"name\": \"columns.base_color.4\", \"value\": \"\"}\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n                \"users\": [{\"userid\": \"1\", \"permission\": \"2\"}],\r\n                \"userGroups\": [{\"usrgrpid\": \"7\", \"permission\": \"2\"}]\r\n            },\r\n    \"id\": 1\r\n}"
+				{
+					"name": "Create Iperf Script",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"script.create\",\r\n    \"params\": {\r\n\t\t\"host_access\": \"2\",\r\n\t\t\"usrgrpid\": \"0\",\r\n\t\t\"groupid\": {{wive_group}},\r\n\t\t\"type\": \"0\",\r\n\t\t\"execute_on\": \"0\",\r\n\t\t\"scope\": \"2\",\r\n\t\t\"menu_path\": \"Scripts\",\r\n\t\t\"name\": \"Speedtest Iperf\",\r\n\t\t\"command\": \"iperf3 -c {{IPERF}} -R\"\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
-					"protocol": "http",
-					"host": [
-						"{{URL}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api_jsonrpc.php"
-					]
+				{
+					"name": "Create Wi-Fi Clients Metrics Script",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json-rpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"script.create\",\r\n    \"params\": {\r\n\t\t\"host_access\": \"2\",\r\n\t\t\"usrgrpid\": \"0\",\r\n\t\t\"groupid\": {{wive_group}},\r\n\t\t\"type\": \"0\",\r\n\t\t\"execute_on\": \"0\",\r\n\t\t\"scope\": \"2\",\r\n\t\t\"menu_path\": \"Scripts\",\r\n\t\t\"name\": \"View Wi-Fi Clients Metrics\",\r\n\t\t\"command\": \"wl stalist\"\r\n            },\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/api_jsonrpc.php",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api_jsonrpc.php"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

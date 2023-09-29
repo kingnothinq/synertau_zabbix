@@ -63,7 +63,7 @@ class ZabbixCreateCalls(ZabbixBase):
                 "type": "0",
                 "execute_on": "0",
                 "scope": "2",
-                "menu_path": "Scripts",
+                "menu_path": "Scripts"
             }
         }
 
