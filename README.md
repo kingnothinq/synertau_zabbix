@@ -62,6 +62,8 @@ Install the appropriate software:
    - `ZABBIX_PORT` – Zabbix Server Port
    - `ZABBIX_API_KEY` – Given Zabbix API Token (Users -> API Tokens -> Create API token)
    - `IPERF_SERVER` – Your Iperf Server (used in Scripts)
+   
+   Run `app.py`.
 
    - Using Postman collection
    Please read README.md in the `postman` folder.
