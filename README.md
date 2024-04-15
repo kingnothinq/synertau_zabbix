@@ -14,7 +14,6 @@ Install the appropriate software:
 
 1. [Docker Desktop](https://www.docker.com).
 2. [Git](https://github.com/git-guides/install-git).
-3. [PyCharm](https://www.jetbrains.com/ru-ru/pycharm/download) (optional).
 
 ## Usage
 
@@ -36,36 +35,13 @@ Install the appropriate software:
     ```shell
     docker compose build
     ```
-   This command should be run from the root directory where `Dockerfile` is located.
-   You also need to build the docker container again in case if you have updated `requirements.txt`.
 
 3. Now it is possible to run the project inside the Docker container:
     ```shell
     docker compose up
     ```
-   When containers are up server starts at [http://0.0.0.0:80](http://0.0.0.0:80). You can open it in your browser.
+   When containers are up server starts at [http://0.0.0.0:8080](http://0.0.0.0:8080). You can open it in your browser.
 
 4. The server can be configured to have the Synertau templates using Postman:
 
    Please read README.md in the `postman` folder.
-
-## Documentation
-
-The project integrated with the [Sphinx](https://www.sphinx-doc.org/en/master/) documentation engine. 
-It allows the creation of documentation from source code. 
-So the source code should contain docstrings in [reStructuredText](https://docutils.sourceforge.io/rst.html) format.
-
-To create HTML documentation run this command from the source directory where `Makefile` is located:
-```shell
-make docs-html
-```
-
-After generation documentation can be opened from a file `docs/build/html/index.html`.
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
