@@ -100,4 +100,3 @@ pip-selfcheck.json
 !/env_vars/
 !/env_vars/.env
 !/.mypy_cache/
-!/env_vars/.env_app

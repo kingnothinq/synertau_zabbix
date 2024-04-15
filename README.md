@@ -45,27 +45,8 @@ Install the appropriate software:
     ```
    When containers are up server starts at [http://0.0.0.0:80](http://0.0.0.0:80). You can open it in your browser.
 
-4. The server can be configured to have the Synertau templates in two ways:
-   - Using a script
-   
-   To configure the Synertau application copy `.env_app.sample` into `.env_app` file in the env_vars folder:
-    ```shell
-    cp .env_app.sample .env_app
-    ```
-   
-   This file contains environment variables that will share their values across the application.
-   The sample file (`.env_app.sample`) contains a set of variables with default values. 
-   So it can be configured depending on the environment.
-   
-   Set received access tokens as environment variable values (in `.env_app` file):
-   - `ZABBIX_SERVER` – Zabbix Server URL or IP
-   - `ZABBIX_PORT` – Zabbix Server Port
-   - `ZABBIX_API_KEY` – Given Zabbix API Token (Users -> API Tokens -> Create API token)
-   - `IPERF_SERVER` – Your Iperf Server (used in Scripts)
-   
-   Run `app.py`.
+4. The server can be configured to have the Synertau templates using Postman:
 
-   - Using Postman collection
    Please read README.md in the `postman` folder.
 
 ## Documentation
